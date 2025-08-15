@@ -8,13 +8,19 @@ My setup is pretty minimal but meant to help with a lot. It’s still a work in 
 This is for Artix + OpenRC, but it should work on other Arch-based systems too (nothing here is OpenRC-specific).
 
 What’s inside
-.
+
 ├─ apps/        # .desktop launchers (show up in rofi “drun”, menus, etc.)
+
 ├─ bin/         # small helper scripts (go in ~/.local/bin)
+
 ├─ gtk/         # GTK settings for GTK3 apps (Thunar, etc.)
+
 ├─ i3/          # i3 WM configuration
+
 ├─ i3blocks/    # i3blocks config + scripts
+
 ├─ rofi/        # rofi config / themes
+
 └─ screen.png   # screenshot
 
 
