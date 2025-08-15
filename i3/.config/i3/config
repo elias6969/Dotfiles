@@ -1,0 +1,162 @@
+########################################
+# i3 WINDOW MANAGER CONFIG (organized)
+########################################
+
+# ---------- Core ----------
+set $mod Mod4
+
+# Default applications
+set $terminal      alacritty
+set $gpuTerminal   kitty
+set $browser       firefox
+set $brave         brave
+set $volume        pavucontrol
+set $filebrowser   thunar
+
+# Font
+font pango:BigBlueTermPlus Nerd Font Mono 10
+
+# Optional: make floating windows draggable with Mod
+floating_modifier $mod
+
+
+########################################
+# WORKSPACES
+########################################
+set $ws1  "1: dev"
+set $ws2  "2: web"
+set $ws3  "3: sys"
+set $ws4  "4: media"
+set $ws5  "5: chat"
+set $ws6  "6: webdev"
+set $ws7  "7: game"
+set $ws8  "8: extra"
+set $ws9  "9: crazy"
+set $ws10 "10: give up"
+
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+
+########################################
+# WINDOW MANAGEMENT & MOVEMENT
+########################################
+# Focus (vim-style)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move windows (with Shift)
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Split orientation
+bindsym $mod+v split v
+bindsym $mod+b split h   # note: overrides default bar toggle
+
+# Floating / fullscreen / kill
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+f          fullscreen toggle
+bindsym $mod+Shift+q    kill
+
+# Reload / restart i3
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+
+########################################
+# APPLICATION LAUNCHERS
+########################################
+bindsym $mod+Return       exec $terminal
+bindsym $mod+Shift+Return exec $gpuTerminal
+bindsym $mod+Shift+b      exec $browser
+#bindsym $mod+d            exec dmenu_run
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+t            exec $brave
+bindsym $mod+i            exec $filebrowser
+bindsym $mod+p            exec $volume
+
+
+bindsym $mod+y exec --no-startup-id ~/.config/i3/devmenu.sh
+
+# Script launcher
+# bindsym $mod+Shift+w exec --no-startup-id alacritty -e ~/scripts/windows-reboot.sh
+bindsym $mod+Shift+w exec alacritty -e ~/.config/i3/windows-reboot.sh
+
+
+########################################
+# WINDOW ASSIGNMENTS
+########################################
+# (add for_window rules here if needed)
+
+
+########################################
+# STATUS BAR
+########################################
+bar {
+    status_command i3blocks -c "$HOME/.config/i3blocks/config"
+    font pango:BigBlueTermPlus Nerd Font Mono 10
+    position bottom
+    tray_output primary
+    tray_padding 3
+    height 26
+
+    colors {
+    background #1e1e2e
+    statusline #cdd6f4
+    separator  #585b70
+
+    focused_workspace  #003459 #00599C #89b4fa
+    active_workspace   #cdd6f4 #313244 #89b4fa
+    inactive_workspace #6c7086 #1e1e2e #45475a
+    urgent_workspace   #1e1e2e #f38ba8 #f38ba8
+    binding_mode       #1e1e2e #f9e2af #f9e2af
+    }
+}
+
+
+
+########################################
+# STARTUP APPLICATIONS
+########################################
+# Wallpaper
+exec --no-startup-id feh --bg-scale ~/Pictures/wallpapers/default.jpg
+
+# Compositor
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
+
+# Monitor layout
+exec --no-startup-id ~/.screenlayout/main1.sh
+
+# --- Flameshot ---
+# Start flameshot in the tray
+exec --no-startup-id flameshot
+
+# PrintScreen opens the screenshot GUI
+bindsym $mod+Shift+s exec --no-startup-id flameshot gui
+
+exec --no-startup-id feh --no-xinerama --bg-scale /home/elias/Pictures/back1.png

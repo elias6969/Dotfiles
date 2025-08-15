@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Pigeon Audio
+Comment=Project maker
+Exec=bash -lc 'cd "$HOME/Documents/Pigeon-Audio/build" && ./Engine'
+Terminal=false
+Categories=Development;
+Icon=/home/elias/.local/share/icons/lain.png

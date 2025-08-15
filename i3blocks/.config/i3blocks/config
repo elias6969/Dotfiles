@@ -1,0 +1,55 @@
+# ~/.config/i3/i3blocks.conf
+separator=true
+separator_block_width=15
+markup=pango
+command_timeout=5
+
+[random_quote]
+command=$HOME/.config/i3blocks/scripts/random_quotes.sh
+interval=60
+color=#00ffcc
+signal=1
+
+[documentation]
+command=$HOME/.config/i3blocks/scripts/documentation.sh
+interval=120
+color=#f12711
+
+[greetings]
+command=echo "Hello, light( 0 _ 0 )"
+interval=once
+color=#f5af19
+
+[void_whispers]
+command=$HOME/.config/i3blocks/scripts/void_whispers.sh
+interval=30
+color=#8a2be2
+
+[existential_thought]
+command=$HOME/.config/i3blocks/scripts/existential_thoughts.sh
+interval=120
+color=#aaaaff
+
+[mysterious_noise]
+command=echo "*click* *whirr* don’t worry about it..."
+interval=once
+color=#ffffff
+
+[last_404]
+command=$HOME/.config/i3blocks/scripts/last_404.sh
+interval=180
+color=#ff4444
+
+[random_keysmash]
+command=$HOME/.config/i3blocks/scripts/random_keysmash.sh
+interval=20
+color=#00ffaa
+
+[cosmic_weather]
+command=echo "Space weather: Gamma flares rising..."
+interval=90
+color=#99ccff
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1

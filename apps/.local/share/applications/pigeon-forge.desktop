@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Pigeon Forge
+Comment=Project maker
+Exec=bash -lc 'cd "$HOME/Documents/Pigeon-Forge/build" && ./ProjectMaker'
+Terminal=false
+Categories=Development;
+Icon=/home/elias/.local/share/icons/pigeon-forge.png
